@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <button id='btn'>Click Me</button>
+  <button id='btn2'>Click Me Too</button>
+  <button id='btn3'>Click Me Three</button>
+
+  <script>
+  	const buttons = document.querySelectorAll('button');
+  	buttons.forEach((button) => {
+  	  button.addEventListener('click', (e) => {
+  	  	alert(button.id);
+  	  });
+  	});
+  </script>
+</body>
+</html>

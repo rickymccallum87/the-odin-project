@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+	<script>
+		// Computer randomly selects a move
+		function computerPlay() {
+			moves = ['Rock', 'Paper', 'Scissors']
+			return moves[Math.floor(Math.random() * 3)];
+		}
+
+		// Play one round
+		function singleRound(playerSelection, computerSelection) {
+
+			// Player selection is case insensitive
+			playerSelection = playerSelection.toLowerCase();
+
+			// Determine winner
+			if (playerSelection == computerSelection) {
+				tieMove = playerSelection.charAt(0).toUpperCase()
+						+ playerSelection.slice(1);
+				return `It\'s a Tie! You both played ${tieMove}`;
+			}
+
+			if (playerSelection == 'rock') {
+				if (computerSelection == 'paper') {
+					return "You Lose! Paper beats Rock";
+				}
+				if (computerSelection == 'scissors') {
+					return "You Win! Rock beats Scissors";
+				}
+			}
+
+			if (playerSelection == 'paper') {
+				if (computerSelection == 'rock') {
+					return "You Win! Paper beats Rock";
+				}
+				if (computerSelection == 'scissors') {
+					return "You Lose! Scissors beats Paper";
+				}
+			}
+
+			if (playerSelection == 'scissors') {
+				if (computerSelection == 'rock') {
+					return "You Lose! Rock beats Scissors";
+				}
+				if (computerSelection == 'paper') {
+					return "You Win! Scissors beats Paper";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

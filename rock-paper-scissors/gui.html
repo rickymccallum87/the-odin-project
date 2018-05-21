@@ -9,14 +9,70 @@
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
+		<div class="container">
+
+			<div class="jumbotron">
+				<h1 class="display-4 mb-4">Rock, Paper, Scissors</h1>
+
+				<div class="row mb-4">
+					<div class="col">
+						<button type="button" id="rock" class="btn btn-dark btn-lg mx-auto d-block px-5">Rock</button>
+					</div>
+					<div class="col">
+						<button type="button" id="paper" class="btn btn-dark btn-lg mx-auto d-block px-5">Paper</button>
+					</div>
+					<div class="col">
+						<button type="button" id="scissors" class="btn btn-dark btn-lg mx-auto d-block px-5">Scissors</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div class="alert alert-success" role="alert">
+							WIN. A simple success alert—check it out!
+						</div>
+						<div class="alert alert-danger" role="alert">
+							LOSE. A simple danger alert—check it out!
+						</div>
+						<div class="alert alert-info" role="alert">
+							TIE. A simple info alert—check it out!
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 		<script>
+
+			/*
+			// Determine winner
+			let roundResult = playRound(playerMove, computerPlay());
+			console.log(roundResult);
+
+			// Update running tally
+			if (roundResult.includes('Win')) {
+				finalOutcome += 1;
+			}
+			if (roundResult.includes('Lose')) {
+				finalOutcome -= 1;
+			}
+
+			// Declare winner
+			if (finalOutcome > 0) {
+				console.log('You won the game!');
+			} else if (finalOutcome < 0) {
+				console.log('I win this time!');
+			} else {
+				console.log('We tied.');
+			}
+
 			// Computer randomly selects a move
 			function computerPlay() {
 				let moves = ['rock', 'paper', 'scissors']
 				return moves[Math.floor(Math.random() * 3)];
 			}
+			*/
 
 			// Play one round
 			function playRound(playerSelection, computerSelection) {
@@ -65,32 +121,6 @@
 					}
 				}
 			}
-
-					// Determine winner
-					let roundResult = playRound(playerMove, computerPlay());
-					console.log(roundResult);
-
-					// Update running tally
-					if (roundResult.includes('Win')) {
-						finalOutcome += 1;
-					}
-					if (roundResult.includes('Lose')) {
-						finalOutcome -= 1;
-					}
-				}
-
-				// Declare winner
-				if (finalOutcome > 0) {
-					console.log('You won the game!');
-				} else if (finalOutcome < 0) {
-					console.log('I win this time!');
-				} else {
-					console.log('We tied.');
-				}
-
-			}
-
-			game();
 		</script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

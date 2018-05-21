@@ -12,7 +12,8 @@
 		<div class="container">
 
 			<div class="jumbotron">
-				<h1 class="display-4 mb-4">Rock, Paper, Scissors</h1>
+				<h1 class="display-4">Rock, Paper, Scissors</h1>
+				<p>It's you versus the computer. First player to 5 points wins!</p>
 
 				<div class="row mb-4">
 					<div class="col-md">
@@ -29,17 +30,20 @@
 				<div class="row">
 					<div class="col">
 						<div class="alert alert-success" role="alert">
-							WIN. A simple success alert—check it out!
+							You win this round!
 						</div>
 						<div class="alert alert-danger" role="alert">
-							LOSE. A simple danger alert—check it out!
+							You lose this round...
 						</div>
 						<div class="alert alert-info" role="alert">
-							TIE. A simple info alert—check it out!
+							It's a tie! You and the computer both chose Rock.
 						</div>
 					</div>
 				</div>
 
+				<hr class="my-4">
+
+				<p class="lead">You have <span id="playerScore">0</span> points and the computer has <span id="computerScore">0</span>.</p>
 			</div>
 		</div>
 

@@ -1,16 +1,36 @@
-// Determine winner
-let roundResult = playRound(playerMove, computerPlay());
-console.log(roundResult);
+// Initiate score variables
+let player = document.getElementById('playerScore');
+let computer = document.getElementById('computerScore');
 
-// Update running tally
-if (roundResult.includes('Win')) {
-	finalOutcome += 1;
-}
-if (roundResult.includes('Lose')) {
-	finalOutcome -= 1;
-}
+// Launch a round by clicking a move
+let rockBtn = document.getElementById('rock');
+let paperBtn = document.getElementById('paper');
+let scissorsBtn = document.getElementById('scissors');
 
-// Declare winner
+rockBtn.addEventListener('click', launch('rock');
+paperBtn.addEventListener('click', launch('paper');
+scissorsBtn.addEventListener('click', launch('scissors');
+
+function launch(move) {
+	// Clear old alert to start new round
+	
+	// Determine winner
+	let roundResult = playRound(move, computerPlay());
+	
+	// Update running tally
+	if (roundResult.includes('Win')) {
+		// Increment playerPoints
+		// #win visible
+	} else if (roundResult.includes('Lose')) {
+		// Increment computerPoints
+		// #lose visible
+	} else {
+		// #tie visible
+	}
+
+
+});
+
 if (finalOutcome > 0) {
 	console.log('You won the game!');
 } else if (finalOutcome < 0) {

@@ -7,17 +7,18 @@ let rockBtn = document.getElementById('rock');
 let paperBtn = document.getElementById('paper');
 let scissorsBtn = document.getElementById('scissors');
 
-rockBtn.addEventListener('click', launch('rock');
-paperBtn.addEventListener('click', launch('paper');
-scissorsBtn.addEventListener('click', launch('scissors');
+rockBtn.addEventListener('click', launch('rock'));
+paperBtn.addEventListener('click', launch('paper'));
+scissorsBtn.addEventListener('click', launch('scissors'));
 
 function launch(move) {
 	// Clear old alert to start new round
-	
-	// Determine winner
+
+	// Determine round winner
 	let roundResult = playRound(move, computerPlay());
-	
+
 	// Update running tally
+	// Alert round result
 	if (roundResult.includes('Win')) {
 		// Increment playerPoints
 		// #win visible
@@ -28,16 +29,19 @@ function launch(move) {
 		// #tie visible
 	}
 
+	// Announce game winner
+	if (playerPoints == 5 || computerPoints == 5) {
+		// #gameOver visible
+		if (playerPoints == 5) {
+			// add class .alert-success to #gameOver
+			console.log('You won the game!');
+		} else {
+			// add class .alert-danger to #gameOver
+			console.log('I win this time!');
+		}
+	}
 
 });
-
-if (finalOutcome > 0) {
-	console.log('You won the game!');
-} else if (finalOutcome < 0) {
-	console.log('I win this time!');
-} else {
-	console.log('We tied.');
-}
 
 // Computer randomly selects a move
 function computerPlay() {

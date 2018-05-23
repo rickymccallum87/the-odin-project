@@ -1,47 +1,83 @@
-// Initiate score variables
-let player = document.getElementById('playerScore');
-let computer = document.getElementById('computerScore');
-
-// Launch a round by clicking a move
+// Prep interactive elements
 let rockBtn = document.getElementById('rock');
 let paperBtn = document.getElementById('paper');
 let scissorsBtn = document.getElementById('scissors');
+let moves = document.querySelectorAll('.move');
 
-rockBtn.addEventListener('click', launch('rock'));
-paperBtn.addEventListener('click', launch('paper'));
-scissorsBtn.addEventListener('click', launch('scissors'));
+let win = document.getElementById('win');
+let lose = document.getElementById('lose');
+let tie = document.getElementById('tie');
+let results = document.querySelectorAll('.result');
+
+let playerScore = document.getElementById('playerScore');
+let computerScore = document.getElementById('computerScore');
+let playerPoints = 0;
+let computerPoints = 0;
+
+// Launch a round by clicking a move
+rockBtn.addEventListener('click', () => {launch('rock')});
+paperBtn.addEventListener('click', () => {launch('paper')});
+scissorsBtn.addEventListener('click', () => {launch('scissors')});
 
 function launch(move) {
-	// Clear old alert to start new round
+	// Clear old alert before new round
+	results.forEach(function (el) {
+		el.classList.remove('d-block');
+		el.classList.add('d-none');
+	},
+		''
+	);
 
 	// Determine round winner
 	let roundResult = playRound(move, computerPlay());
 
-	// Update running tally
-	// Alert round result
+	// Update point totals and show round result
 	if (roundResult.includes('Win')) {
 		// Increment playerPoints
+		playerPoints++;
+		playerScore.textContent = playerPoints;
 		// #win visible
+		win.textContent = roundResult;
+		win.classList.remove('d-none');
+		win.classList.add('d-block');
 	} else if (roundResult.includes('Lose')) {
 		// Increment computerPoints
+		computerPoints++;
+		computerScore.textContent = computerPoints;
 		// #lose visible
+		lose.textContent = roundResult;
+		lose.classList.remove('d-none');
+		lose.classList.add('d-block');
 	} else {
 		// #tie visible
+		tie.textContent = roundResult;
+		tie.classList.remove('d-none');
+		tie.classList.add('d-block');
 	}
 
 	// Announce game winner
 	if (playerPoints == 5 || computerPoints == 5) {
-		// #gameOver visible
 		if (playerPoints == 5) {
-			// add class .alert-success to #gameOver
-			console.log('You won the game!');
+			gameOver.textContent = 'You won the game!'
+			gameOver.classList.add('alert-success');
 		} else {
-			// add class .alert-danger to #gameOver
-			console.log('I win this time!');
+			gameOver.textContent = 'I win this time!'
+			gameOver.classList.add('alert-danger');
 		}
+		// #gameOver visible
+		gameOver.classList.remove('d-none');
+		gameOver.classList.add('d-block');
+
+		// Disallow any more moves
+		moves.forEach(function (el) {
+			el.classList.remove('d-block');
+			el.classList.add('d-none');
+		},
+			''
+		);
 	}
 
-});
+}
 
 // Computer randomly selects a move
 function computerPlay() {

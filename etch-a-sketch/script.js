@@ -1,5 +1,4 @@
-let container = document.createElement('div');
-container.classList.add('container');
+let gridContainer = document.createElement('div');
 
 // Build grid
 let grid = [];
@@ -16,15 +15,17 @@ for (let i = 0; i < 16; i++) {
 		grid[i].classList.add('row');
 	}
 
-	container.appendChild(grid[i]);
+	gridContainer.appendChild(grid[i]);
 }
 
 console.log(grid);
 
 // Display grid
-document.body.appendChild(container);
+sketchPad.appendChild(gridContainer);
 
+// Color in each square when hovered
 function draw() {
-	console.log(this);
-	this.classList.add('hovered');
+	if (!this.classList.contains('hovered')) {
+		this.classList.add('hovered');
+	}
 }

@@ -6,7 +6,7 @@ gridContainer.setAttribute('style', 'width: ' + gridSize + 'px;');
 
 // Build grid
 let grid = [];
-let squareCount = 10;
+let squareCount = 20;
 // Fit squares into grid, accounting for margins
 squareSize = (gridSize - squareCount * 2) / squareCount;
 for (let i = 0; i < squareCount ** 2; i++) {

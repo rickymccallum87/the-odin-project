@@ -9,3 +9,7 @@
 .row {
 	clear: left;
 }
+
+.hovered {
+	background-color: blue;
+}

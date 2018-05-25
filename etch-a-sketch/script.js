@@ -1,24 +1,30 @@
 let sketchPad = document.querySelector('#sketchPad');
+let gridWidth = 800;
+
+// Set up reset button
+let resetBtn = document.querySelector('#resetBtn');
+resetBtn.addEventListener('click', function() {
+	let newSize = prompt('How many squares per side?');
+	buildGrid(newSize);
+});
 
 // Display initial grid
 buildGrid(20);
 
 function buildGrid(squareCount) {
-	console.log(squareCount);
 	// Remove old grid, if necessary
 	if (sketchPad.firstChild) {
-		console.log(sketchPad.firstChild);
 		sketchPad.removeChild(sketchPad.firstChild);
 	}
 
 	// Create container
 	let gridContainer = document.createElement('div');
 	gridContainer.classList.add('mx-auto');
-	let gridWidth = 800;
-	gridContainer.setAttribute('style', 'width: ' + gridWidth + 'px;');
+	// +1 to gridWidth to allow for float rounding errors
+	gridContainer.setAttribute('style', 'width: ' + (gridWidth + 1) + 'px;');
 
 	// Fit squares into grid, accounting for margins
-	let squareSize = (gridWidth - squareCount) / squareCount;
+	let squareSize = gridWidth / squareCount;
 
 	// Build grid
 	let grid = [];
@@ -52,10 +58,3 @@ function draw() {
 		this.classList.add('hovered');
 	}
 }
-
-// Set up reset button
-let resetBtn = document.querySelector('#resetBtn');
-resetBtn.addEventListener('click', function() {
-	let newSize = prompt('How many squares per side?');
-	buildGrid(newSize);
-});

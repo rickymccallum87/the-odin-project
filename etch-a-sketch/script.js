@@ -1,36 +1,50 @@
-// Create container
-let gridContainer = document.createElement('div');
-gridContainer.classList.add('mx-auto');
-let gridSize = 800;
-gridContainer.setAttribute('style', 'width: ' + gridSize + 'px;');
+let sketchPad = document.querySelector('#sketchPad');
 
-// Build grid
-let grid = [];
-let squareCount = 20;
-// Fit squares into grid, accounting for margins
-squareSize = (gridSize - squareCount * 2) / squareCount;
-for (let i = 0; i < squareCount ** 2; i++) {
-	// Create each square
-	grid[i] = document.createElement('div');
-	grid[i].classList.add('square');
+// Display initial grid
+buildGrid(20);
 
-	// Size appropriately
-	grid[i].setAttribute('style', 'width: ' + squareSize + 
-		'px; height: ' + squareSize + 'px;');
-
-	// Draw on hover
-	grid[i].addEventListener('mouseover', draw);
-
-	// Begin new row
-	if (i % squareCount == 0) {
-		grid[i].classList.add('newRow');
+function buildGrid(squareCount) {
+	console.log(squareCount);
+	// Remove old grid, if necessary
+	if (sketchPad.firstChild) {
+		console.log(sketchPad.firstChild);
+		sketchPad.removeChild(sketchPad.firstChild);
 	}
 
-	gridContainer.appendChild(grid[i]);
-}
+	// Create container
+	let gridContainer = document.createElement('div');
+	gridContainer.classList.add('mx-auto');
+	let gridWidth = 800;
+	gridContainer.setAttribute('style', 'width: ' + gridWidth + 'px;');
 
-// Display grid
-sketchPad.appendChild(gridContainer);
+	// Fit squares into grid, accounting for margins
+	let squareSize = (gridWidth - squareCount) / squareCount;
+
+	// Build grid
+	let grid = [];
+	for (let i = 0; i < squareCount ** 2; i++) {
+		// Create each square
+		grid[i] = document.createElement('div');
+		grid[i].classList.add('square');
+
+		// Size appropriately
+		grid[i].setAttribute('style', 'width: ' + squareSize + 
+			'px; height: ' + squareSize + 'px;');
+
+		// Draw on hover
+		grid[i].addEventListener('mouseover', draw);
+
+		// Begin new row
+		if (i % squareCount == 0) {
+			grid[i].classList.add('newRow');
+		}
+
+		gridContainer.appendChild(grid[i]);
+	}
+
+	// Display grid
+	sketchPad.appendChild(gridContainer);
+}
 
 // Color in each square when hovered
 function draw() {
@@ -38,3 +52,10 @@ function draw() {
 		this.classList.add('hovered');
 	}
 }
+
+// Set up reset button
+let resetBtn = document.querySelector('#resetBtn');
+resetBtn.addEventListener('click', function() {
+	let newSize = prompt('How many squares per side?');
+	buildGrid(newSize);
+});

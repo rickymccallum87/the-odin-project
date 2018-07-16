@@ -7,6 +7,10 @@
 	grid-gap: 5px;
 	background-color: #aaacae;
 	padding: 2em 1em;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #display {
@@ -15,8 +19,12 @@
 	grid-column-start: 1;
 	grid-column-end: 5;
 	text-align: right;
-	line-height: 50px;
+	line-height: 55px;
 	font-size: 2em;
 	background-color: #b9dbff;
 	padding-right: 0.25em;
+}
+
+.operator {
+	font-weight: bold;
 }

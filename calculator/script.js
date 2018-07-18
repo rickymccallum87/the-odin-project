@@ -1,18 +1,19 @@
 let display = document.getElementById('display');
 let buttons = document.querySelectorAll('button');
 
-for (let i = 0; buttons.length < i; i++) {
-	buttons[i].addEventListener('click', console.log('clicked'));
-}
-
-// Math operations
+// Define math operations
 let add = (op1, op2) => op1 + op2;
 let subtract = (op1, op2) => op1 - op2;
 let multiply = (op1, op2) => op1 * op2;
 let divide = (op1, op2) => op1 / op2;
 let operate = (opr, op1, op2) => opr(op1, op2);
 
-// React to click, depending which button
+// Set up button event listeners
+for (let i = 0; buttons.length > i; i++) {
+	buttons[i].addEventListener('click', () => {input(buttons[i].id)});
+}
+
+// Process button presses
 function input(btn) {
 	switch (btn) {
 		case '0':
@@ -31,18 +32,25 @@ function input(btn) {
 			display.textContent = '';
 			break;
 		case 'add':
+		case 'subtract':
+		case 'multiply':
+		case 'divide':
+			// store display
+			op1 = disp;
+			// store operator
+			opr = btn;
+			// clear display
+			display.textContent = '';
+			break;
+		case 'eq':
+			// store display
+			op2 = disp;
+			// perform operation, update display
+			// display.textContent = operate(opr, op1, op2);
+			display.textContent = eval(opr + '(' + op1 + ', ' + op2 + ')');
 			break;
 		default:
 			alert('Error: Key not recognized.');
 	}
+	disp = display.textContent;
 }
-
-// let btnClr = document.getElementById('clear');
-// btnClr.onclick = function() {
-// 	display.textContent = '';
-// }
-
-// let btn7 = document.getElementById('7');
-// btn7.onclick = function() {
-// 	display.textContent += '7';
-// }

@@ -6,19 +6,19 @@ def caesar_cipher(text, shift)
 
     # A-Z = 65-90, a-z = 97-122
     if ascii >= 65 and ascii <= 90 # upper case
-      print 'X'
+      shifted_ascii += 26 if shifted_ascii < 65
+      shifted_ascii -= 26 if shifted_ascii > 90
     elsif ascii >= 97 and ascii <= 122 # lower case
-      print 'x'
+      shifted_ascii += 26 if shifted_ascii < 97
+      shifted_ascii -= 26 if shifted_ascii > 122
     else # non-alphabet
-      print ' '
+      shifted_ascii -= shift
     end
 
     shifted_ascii.chr
   end
-  puts
-  
-  puts shifted_chars.join
 
+  puts shifted_chars.join
 end
 
 caesar_cipher("What a string!", 5)

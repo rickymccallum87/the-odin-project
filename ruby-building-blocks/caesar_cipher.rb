@@ -1,7 +1,6 @@
 def caesar_cipher(text, shift)
-  text.to_a.each do |char|
-    print text[i].ord
-  end
+  ascii_codes = text.split('').map! { |char| char.ord }
+  puts ascii_codes.inspect
 end
 
 caesar_cipher("What a string!", 5)

@@ -8,9 +8,18 @@ def stock_picker(prices)
     return [best_buy_day, best_sell_day]
   end
 
-  # prices.each_with_index do |price, index|
-  # end
+  # Then, go the thorough route
+  prices.each_with_index do |price, index|
+    # find best profit for this day
+      # take slice of days in future
+      # find max of that
+      # calc best profit
+    # compare to running best profit
+      # if greater, replace running best
+      # otherwise, discard
+  end
 
+  # report pair of days that provided best profit
   return 'Easy way failed'
 end
 

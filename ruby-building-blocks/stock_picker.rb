@@ -23,7 +23,7 @@ def stock_picker(prices)
       todays_best_profit = best_sell_price - buy_price
     # compare to running best profit
       # if greater, replace running best
-      if todays_best_profit > running_best_profit do
+    if todays_best_profit > running_best_profit
         running_best_profit = todays_best_profit
         best_buy_day = index
       end

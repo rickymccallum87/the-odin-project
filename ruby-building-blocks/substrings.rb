@@ -5,11 +5,7 @@ def substrings input, dict
     input_words.each do |input_word|
         dict.each do |sub|
             if input_word.include?(sub)
-
-                if !found[sub]
-                    found[sub] = 0
-                end
-
+                found[sub] = 0 if found[sub].nil?
                 found[sub] += 1
             end
         end

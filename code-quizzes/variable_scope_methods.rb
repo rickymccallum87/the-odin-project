@@ -24,3 +24,10 @@ def funify boring_array
 end
 
 puts funify(['bla', 'ugh', 'sigh']).inspect
+
+def more_fun boring_array
+    boring_array[0] = 'FUN FUN'
+    boring_array
+end
+
+puts more_fun(['bla', 'ugh', 'sigh']).inspect

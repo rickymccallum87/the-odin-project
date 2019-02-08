@@ -11,5 +11,10 @@ def bubble_sort nums
     nums
 end
 
-puts bubble_sort([4,3,78,2,0,2]).inspect
-# [0,2,2,3,4,78]
+def random_array
+  a = Array.new(50) { |a| rand(20) }
+  puts a.inspect
+  a
+end
+
+puts bubble_sort(random_array).inspect

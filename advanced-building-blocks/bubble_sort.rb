@@ -8,7 +8,6 @@ def bubble_sort nums
         end
         puts nums.inspect
 
-        # stop early if no more swaps necessary
         break if nums == prev_nums
         prev_nums = nums.dup
     end

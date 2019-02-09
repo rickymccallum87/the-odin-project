@@ -1,11 +1,16 @@
 def bubble_sort nums
+    prev_nums = []
+
     (nums.length-1).times do
         nums[0..-2].each_with_index do |num, i|
-            # swap if this greater than next
             next_num = nums[i+1]
             nums[i], nums[i+1] = nums[i+1], nums[i] if num > next_num
         end
         puts nums.inspect
+
+        # stop early if no more swaps necessary
+        break if nums == prev_nums
+        prev_nums = nums.dup
     end
 
     nums

@@ -22,10 +22,8 @@ module Enumerable
   end
 
   def my_all?
-    i = 0
-    while i < self.length
-      return false if not yield(self[i])
-      i += 1
+    for i in self
+      return false if not yield i
     end
     true
   end

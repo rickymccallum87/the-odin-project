@@ -22,7 +22,7 @@ module Enumerable
   end
 
   def my_all?
-    for i in self
+    self.my_each do |i|
       return false if not yield i
     end
     true

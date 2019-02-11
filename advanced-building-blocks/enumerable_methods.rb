@@ -59,16 +59,20 @@ module Enumerable
     end
   end
 
-  def my_map
+  def my_map my_proc=nil
     mapped = []
-    if block_given?
+    if my_proc
       self.my_each do |i|
-        mapped << (yield i)
+        mapped << my_proc.call(i)
       end
-      return mapped
+    elsif block_given?
+      self.my_each do |i|
+        mapped << yield(i)
+      end
     else
       return self.to_enum
     end
+    mapped
   end
 
   def my_inject memo=0

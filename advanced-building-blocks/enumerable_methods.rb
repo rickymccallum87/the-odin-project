@@ -16,12 +16,9 @@ module Enumerable
   end
 
   def my_select
-    i = 0
     selected_elements = []
-    while i < self.length
-      result = yield(self[i])
-      selected_elements << self[i] if result
-      i += 1
+    self.my_each do |i|
+      selected_elements << i if yield i
     end
     selected_elements
   end

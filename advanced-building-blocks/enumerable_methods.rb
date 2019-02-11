@@ -27,6 +27,15 @@ module Enumerable
     end
     selected_elements
   end
+
+  def my_all?
+    i = 0
+    while i < self.length
+      return false if not yield(self[i])
+      i += 1
+    end
+    true
+  end
 end
 
 nums = Array.new(10) { |n| rand(10) }

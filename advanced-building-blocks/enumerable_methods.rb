@@ -36,7 +36,13 @@ module Enumerable
     end
     true
   end
-end
 
-nums = Array.new(10) { |n| rand(10) }
-puts nums.my_each { |i| print i }.inspect
+  def my_any?
+    i = 0
+    while i < self.length
+      return true if yield(self[i])
+      i += 1
+    end
+    false
+  end
+end

@@ -58,4 +58,24 @@ module Enumerable
       return self.length
     end
   end
+
+  def my_map
+    mapped = []
+    if block_given?
+      self.my_each do |i|
+        mapped << (yield i)
+      end
+      return mapped
+    else
+      return self.to_enum
+    end
+  end
+
+  def my_inject
+    memo = 0
+    self.my_each do |i|
+      memo = yield memo, i
+    end
+    memo
+  end
 end

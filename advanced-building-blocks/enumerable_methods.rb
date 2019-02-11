@@ -29,10 +29,8 @@ module Enumerable
   end
 
   def my_any?
-    i = 0
-    while i < self.length
-      return true if yield(self[i])
-      i += 1
+    self.my_each do |i|
+      return true if yield self[i]
     end
     false
   end

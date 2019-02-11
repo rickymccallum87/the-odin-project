@@ -7,10 +7,8 @@ module Enumerable
   end
 
   def my_each_with_index
-    i = 0
-    while i < self.length
+    for i in 0..self.length - 1
       yield(self[i], i)
-      i += 1
     end
     self
   end

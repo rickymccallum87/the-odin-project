@@ -14,11 +14,11 @@ module Enumerable
   end
 
   def my_select
-    selected_elements = []
+    selected = []
     self.my_each do |i|
-      selected_elements << i if yield i
+      selected << i if yield i
     end
-    selected_elements
+    selected
   end
 
   def my_all?

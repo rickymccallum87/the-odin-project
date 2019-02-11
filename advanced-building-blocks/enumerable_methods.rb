@@ -36,10 +36,8 @@ module Enumerable
   end
 
   def my_none?
-    i = 0
-    while i < self.length
-      return false if yield(self[i])
-      i += 1
+    self.my_each do |i|
+      return false if yield self[i]
     end
     true
   end

@@ -6,7 +6,7 @@ def bubble_sort nums
             next_num = nums[i+1]
             nums[i], nums[i+1] = nums[i+1], nums[i] if num > next_num
         end
-        puts nums.inspect
+        # puts nums.inspect
 
         break if nums == prev_nums
         prev_nums = nums.dup
@@ -15,10 +15,25 @@ def bubble_sort nums
     nums
 end
 
-def random_array
-  a = Array.new(50) { |a| rand(20) }
-  puts a.inspect
-  a
+def bubble_sort_by list
+    i = 0
+    while i < list.length - 1
+        result = yield(list[i], list[i+1])
+        list[i], list[i+1] = list[i+1], list[i] if result > 0
+        i += 1
+    end
+    list
 end
 
-puts bubble_sort(random_array).inspect
+def random_array
+  Array.new(20) { |a| rand(20) }
+end
+
+rand_nums = random_array
+puts rand_nums.inspect
+
+puts 'Bubble Sort:'
+puts bubble_sort(rand_nums).inspect
+
+puts 'Bubble_Sort_By:'
+puts bubble_sort_by(["hi","hello","hey"]) { |left,right| left.length - right.length }.inspect

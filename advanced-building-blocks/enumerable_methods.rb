@@ -41,4 +41,21 @@ module Enumerable
     end
     true
   end
+
+  def my_count check=nil
+    count = 0
+    if check
+      self.my_each do |i|
+        count += 1 if check == i
+      end
+      return count
+    elsif block_given?
+      self.my_each do |i|
+        count += 1 if yield i
+      end
+      return count
+    else
+      return self.length
+    end
+  end
 end

@@ -71,11 +71,17 @@ module Enumerable
     end
   end
 
-  def my_inject
-    memo = 0
+  def my_inject memo=0
     self.my_each do |i|
       memo = yield memo, i
+      puts memo
     end
     memo
   end
+end
+
+def multiply_els arr
+  puts arr.inspect
+  arr.my_inject(1) { |product, i| product * i }
+  puts arr.inspect
 end

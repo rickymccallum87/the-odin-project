@@ -62,10 +62,10 @@ module MathHelper
     x * 2
   end
 end
-
 class Homework
   include MathHelper
 end
-
 h = Homework.new
 p h.multiply_by_two(5)
+
+p Array.ancestors

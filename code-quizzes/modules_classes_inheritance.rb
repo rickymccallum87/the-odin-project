@@ -69,3 +69,22 @@ h = Homework.new
 p h.multiply_by_two(5)
 
 p Array.ancestors
+
+class BaseballPlayer
+  def initialize(hits, walks, at_bats)
+    @hits = hits
+    @walks = walks
+    @at_bats = at_bats
+  end
+
+  def batting_average
+    @hits / @at_bats.to_f
+  end
+
+  def on_base_percentage
+    (@hits + @walks) / @at_bats.to_f
+  end
+end
+babe_ruth = BaseballPlayer.new(500, 100, 2_000)
+p babe_ruth.batting_average
+p babe_ruth.on_base_percentage

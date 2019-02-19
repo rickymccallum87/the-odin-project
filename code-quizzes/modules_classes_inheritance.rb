@@ -20,3 +20,10 @@ class Insect
   end
 end
 p Insect.new(500).age_in_years
+
+class Lamp
+  def self.about_me
+    "We brighten up people's lives"
+  end
+end
+p Lamp.about_me

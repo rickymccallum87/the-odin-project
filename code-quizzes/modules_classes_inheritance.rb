@@ -38,3 +38,21 @@ class WaterBottle
   end
 end
 p WaterBottle.new(16).size
+
+class Person
+  def initialize(age)
+    @age = age
+  end
+
+  def age=(new_age)
+    @age = new_age
+  end
+
+  def age
+    @age
+  end
+end
+guy = Person.new(20)
+p guy.age
+guy.age = 21
+p guy.age

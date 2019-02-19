@@ -29,8 +29,8 @@ end
 p Fish.general_overview
 
 class Calculator
-  def self.add(a, b)
-    a + b
+  def self.add(number, exponent)
+    number + exponent
   end
 end
 p Calculator.add(1, 2)

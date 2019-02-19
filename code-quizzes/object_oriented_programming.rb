@@ -27,3 +27,10 @@ class Fish
   end
 end
 p Fish.general_overview
+
+class Calculator
+  def self.add(a, b)
+    a + b
+  end
+end
+p Calculator.add(1, 2)

@@ -27,3 +27,14 @@ class Lamp
   end
 end
 p Lamp.about_me
+
+class WaterBottle
+  def initialize(size)
+    @size = size
+  end
+
+  def size
+    @size
+  end
+end
+p WaterBottle.new(16).size

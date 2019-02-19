@@ -34,3 +34,14 @@ class Calculator
   end
 end
 p Calculator.add(1, 2)
+
+class Celsius
+  def initialize(temperature)
+    @temperature = temperature
+  end
+
+  def to_fahrenheit
+    @temperature * 1.8 + 32
+  end
+end
+p Celsius.new(100).to_fahrenheit

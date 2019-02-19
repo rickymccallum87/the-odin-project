@@ -56,3 +56,16 @@ guy = Person.new(20)
 p guy.age
 guy.age = 21
 p guy.age
+
+module MathHelper
+  def multiply_by_two(x)
+    x * 2
+  end
+end
+
+class Homework
+  include MathHelper
+end
+
+h = Homework.new
+p h.multiply_by_two(5)

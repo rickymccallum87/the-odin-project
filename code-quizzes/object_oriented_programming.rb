@@ -4,7 +4,6 @@ p Array.new.push('fun', 'games')
 
 class Animal
 end
-
 p fido = Animal.new
 
 class Dog
@@ -12,7 +11,6 @@ class Dog
     'ruff ruff'
   end
 end
-
 p spot = Dog.new
 p spot.speak
 
@@ -21,5 +19,11 @@ class Penguin
     'We are cute!'
   end
 end
-
 p Penguin.new.looks
+
+class Fish
+  def self.general_overview
+    'Fish are animals that live in the sea'
+  end
+end
+p Fish.general_overview

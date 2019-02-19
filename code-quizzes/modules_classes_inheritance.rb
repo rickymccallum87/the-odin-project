@@ -57,16 +57,16 @@ p WaterBottle.new(16).size
 # guy.age = 21
 # p guy.age
 
-module MathHelper
-  def multiply_by_two(x)
-    x * 2
-  end
-end
-class Homework
-  include MathHelper
-end
-h = Homework.new
-p h.multiply_by_two(5)
+# module MathHelper
+#   def multiply_by_two(x)
+#     x * 2
+#   end
+# end
+# class Homework
+#   include MathHelper
+# end
+# h = Homework.new
+# p h.multiply_by_two(5)
 
 p Array.ancestors
 
@@ -103,3 +103,18 @@ class Person
 end
 anon = Person.new('John', 'Smith')
 p anon.full_name
+
+module MathHelper
+  def exponent(a, b)
+    a**b
+  end
+end
+
+class Calculator
+  include MathHelper
+
+  def square_root(x)
+    exponent(x, 0.5)
+  end
+end
+p Calculator.new.square_root(16)

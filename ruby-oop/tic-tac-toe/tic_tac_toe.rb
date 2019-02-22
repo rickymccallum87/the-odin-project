@@ -1,6 +1,5 @@
 class TicTacToe
   def initialize
-    @rounds_played = 0
     @winner = nil
   end
 
@@ -14,7 +13,6 @@ class TicTacToe
       @current_player = next_turn
     end
     declare_winner
-    @rounds_played += 1
   end
 
   def take_turn

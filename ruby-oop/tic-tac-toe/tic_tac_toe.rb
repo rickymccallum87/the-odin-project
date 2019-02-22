@@ -5,6 +5,13 @@ class TicTacToe
   end
 
   def play_round
+    @board = Board.new
+    @player_x = Player.new('X')
+    @player_o = Player.new('O')
+    until @board.row?
+      # players take turns
+    end
+    @rounds_played += 1
   end
 
   def declare_winner
@@ -26,6 +33,13 @@ class Board
 end
 
 class Player
+  def initialize(mark)
+    @mark = mark
+  end
+
   def make_move(position)
   end
 end
+
+game = TicTacToe.new
+game.play_round

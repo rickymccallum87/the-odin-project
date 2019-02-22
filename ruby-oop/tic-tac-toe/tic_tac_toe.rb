@@ -8,10 +8,21 @@ class TicTacToe
     @board = Board.new
     @player_x = Player.new('X')
     @player_o = Player.new('O')
-    until @board.row?
-      # players take turns
+    @current_player = @player_x
+    until @board.three_in_a_row? || @board.full?
+      take_turn(@current_player)
+      @current_player = next_turn
     end
+    declare_winner
     @rounds_played += 1
+  end
+
+  def take_turn
+    # make move based on player input
+  end
+
+  def next_turn
+    @current_player == player_x ? player_o : player_x
   end
 
   def declare_winner
@@ -23,8 +34,12 @@ class Board
     @board = Array.new(9)
   end
 
-  def row?
-    # check for run of 3 marks
+  def three_in_a_row?
+    # check for 3 marks in a row
+  end
+
+  def full?
+    # check whether any open spaces remain
   end
 
   def reset
@@ -37,7 +52,8 @@ class Player
     @mark = mark
   end
 
-  def make_move(position)
+  def make_move(board, position)
+    board[position] = @mark
   end
 end
 

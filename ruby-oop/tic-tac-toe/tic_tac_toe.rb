@@ -10,19 +10,18 @@ class TicTacToe
     @current_player = @player_x
     until @board.three_in_a_row? || @board.full?
       take_turn(@current_player)
+      @board.display
       @current_player = next_player
     end
     declare_winner
   end
 
   def take_turn(player)
-    puts "Player #{player}'s move: "
-    position = gets.chomp
-    @board[position] = player.mark
+    @board.place_mark(player.mark, player.select_position)
   end
 
-  def next_player(current)
-    @current_player == player_x ? player_o : player_x
+  def next_player
+    @current_player == @player_x ? @player_o : @player_x
   end
 
   def declare_winner
@@ -32,7 +31,15 @@ end
 
 class Board
   def initialize
-    @board = Array.new(9)
+    @grid = Array.new(9)
+  end
+
+  def display
+    p @grid
+  end
+
+  def place_mark(mark, position)
+    @grid[position] = mark
   end
 
   def three_in_a_row?
@@ -40,7 +47,7 @@ class Board
   end
 
   def full?
-    @board.all?
+    @grid.all?
   end
 
   def reset
@@ -53,6 +60,11 @@ class Player
 
   def initialize(mark)
     @mark = mark
+  end
+
+  def select_position
+    puts "Player #{player}'s move: "
+    gets.chomp
   end
 
   def to_s

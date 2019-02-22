@@ -10,20 +10,23 @@ class TicTacToe
     @current_player = @player_x
     until @board.three_in_a_row? || @board.full?
       take_turn(@current_player)
-      @current_player = next_turn
+      @current_player = next_player
     end
     declare_winner
   end
 
-  def take_turn
-    # make move based on player input
+  def take_turn(player)
+    puts "Player #{player}'s move: "
+    position = gets.chomp
+    @board[position] = player.mark
   end
 
-  def next_turn
+  def next_player(current)
     @current_player == player_x ? player_o : player_x
   end
 
   def declare_winner
+    puts 'Draw!'
   end
 end
 
@@ -37,7 +40,7 @@ class Board
   end
 
   def full?
-    # check whether any open spaces remain
+    @board.all?
   end
 
   def reset
@@ -46,12 +49,14 @@ class Board
 end
 
 class Player
+  attr_reader :mark
+
   def initialize(mark)
     @mark = mark
   end
 
-  def make_move(board, position)
-    board[position] = @mark
+  def to_s
+    mark
   end
 end
 

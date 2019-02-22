@@ -63,8 +63,8 @@ class Player
   end
 
   def select_position
-    puts "Player #{player}'s move: "
-    gets.chomp
+    puts "Player #{mark}'s move: "
+    gets.chomp.to_i
   end
 
   def to_s

@@ -25,7 +25,7 @@ class TicTacToe
   end
 
   def declare_winner
-    puts 'Draw!'
+    puts 'Game over!'
   end
 end
 
@@ -44,6 +44,7 @@ class Board
 
   def three_in_a_row?
     # check for 3 marks in a row
+    return @grid[0..2].all? { |pos| pos == 'X' }
   end
 
   def full?

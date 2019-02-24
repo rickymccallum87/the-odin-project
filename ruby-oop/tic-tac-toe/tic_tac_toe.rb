@@ -43,8 +43,11 @@ class Board
   end
 
   def three_in_a_row?
-    # check for 3 marks in a row
-    return @grid[0..2].all? { |pos| pos == 'X' }
+    # should only return true or false
+    return @grid[0..2] if @grid[0..2].all? { |pos| pos == 'X' }
+    return @grid[3..5] if @grid[3..5].all? { |pos| pos == 'X' }
+    return @grid[6..8] if @grid[6..8].all? { |pos| pos == 'X' }
+    # etc
   end
 
   def full?

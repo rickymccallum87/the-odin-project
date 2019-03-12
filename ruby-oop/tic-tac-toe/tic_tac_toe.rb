@@ -17,7 +17,22 @@ class TicTacToe
   end
 
   def take_turn(player)
-    @board.place_mark(player.mark, player.select_position)
+    position = nil
+    while !position
+      position = validate(player.select_position)
+      puts 'Choose an open spot on the game board.' unless position
+    end
+    @board.place_mark(player.mark, position)
+  end
+
+  def validate(position)
+    if position < 0 || position > @board.grid.length
+      return false
+    elsif @board.grid[position]
+      return false
+    else
+      return position
+    end
   end
 
   def next_player
@@ -30,6 +45,8 @@ class TicTacToe
 end
 
 class Board
+  attr_reader :grid
+
   def initialize
     @grid = Array.new(9)
   end

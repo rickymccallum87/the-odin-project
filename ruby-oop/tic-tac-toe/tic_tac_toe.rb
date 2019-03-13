@@ -64,7 +64,9 @@ class Board
     return @grid[0..2] if @grid[0..2].all? { |pos| pos == 'X' }
     return @grid[3..5] if @grid[3..5].all? { |pos| pos == 'X' }
     return @grid[6..8] if @grid[6..8].all? { |pos| pos == 'X' }
-    # etc
+    return @grid[0..2] if @grid[0..2].all? { |pos| pos == 'O' }
+    return @grid[3..5] if @grid[3..5].all? { |pos| pos == 'O' }
+    return @grid[6..8] if @grid[6..8].all? { |pos| pos == 'O' }
   end
 
   def full?

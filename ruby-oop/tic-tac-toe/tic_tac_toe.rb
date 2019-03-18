@@ -27,12 +27,21 @@ class TicTacToe
   end
 
   def validate(position)
-    if position < 0 || position > @board.grid.length
-      return false
-    elsif @board.grid[position]
+    # did user enter anything?
+    if position == ''
       return false
     else
-      return position
+      position = position.to_i
+      # outside board?
+      if position < 0 || position > @board.grid.length
+        return false
+      # spot occupied?
+      elsif @board.grid[position]
+        return false
+      # acceptable input
+      else
+        return position
+      end
     end
   end
 
@@ -104,7 +113,7 @@ class Player
 
   def select_position
     puts "Player #{mark}'s move: "
-    gets.chomp.to_i
+    gets.chomp
   end
 
   def to_s

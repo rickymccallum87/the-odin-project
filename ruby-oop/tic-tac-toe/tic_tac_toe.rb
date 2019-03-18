@@ -75,26 +75,27 @@ class Board
   end
 
   def three_in_a_row?
-    # should only return true or false
     # rows
-    return @grid[0..2] if @grid[0..2].all? { |pos| pos == 'X' }
-    return @grid[3..5] if @grid[3..5].all? { |pos| pos == 'X' }
-    return @grid[6..8] if @grid[6..8].all? { |pos| pos == 'X' }
-    return @grid[0..2] if @grid[0..2].all? { |pos| pos == 'O' }
-    return @grid[3..5] if @grid[3..5].all? { |pos| pos == 'O' }
-    return @grid[6..8] if @grid[6..8].all? { |pos| pos == 'O' }
+    return true if @grid[0..2].all? { |pos| pos == 'X' }
+    return true if @grid[3..5].all? { |pos| pos == 'X' }
+    return true if @grid[6..8].all? { |pos| pos == 'X' }
+    return true if @grid[0..2].all? { |pos| pos == 'O' }
+    return true if @grid[3..5].all? { |pos| pos == 'O' }
+    return true if @grid[6..8].all? { |pos| pos == 'O' }
     # columns
-    return @grid[0] == 'X' && @grid[3] == 'X' && @grid[6] == 'X' 
-    return @grid[1] == 'X' && @grid[4] == 'X' && @grid[7] == 'X' 
-    return @grid[2] == 'X' && @grid[5] == 'X' && @grid[8] == 'X' 
-    return @grid[0] == 'O' && @grid[3] == 'O' && @grid[6] == 'O' 
-    return @grid[1] == 'O' && @grid[4] == 'O' && @grid[7] == 'O' 
-    return @grid[2] == 'O' && @grid[5] == 'O' && @grid[8] == 'O' 
+    return true if @grid[0] == 'X' && @grid[3] == 'X' && @grid[6] == 'X'
+    return true if @grid[1] == 'X' && @grid[4] == 'X' && @grid[7] == 'X'
+    return true if @grid[2] == 'X' && @grid[5] == 'X' && @grid[8] == 'X'
+    return true if @grid[0] == 'O' && @grid[3] == 'O' && @grid[6] == 'O'
+    return true if @grid[1] == 'O' && @grid[4] == 'O' && @grid[7] == 'O'
+    return true if @grid[2] == 'O' && @grid[5] == 'O' && @grid[8] == 'O'
     # diagonals
-    return @grid[0] == 'X' && @grid[4] == 'X' && @grid[8] == 'X' 
-    return @grid[2] == 'X' && @grid[4] == 'X' && @grid[6] == 'X' 
-    return @grid[0] == 'O' && @grid[4] == 'O' && @grid[8] == 'O' 
-    return @grid[2] == 'O' && @grid[4] == 'O' && @grid[6] == 'O' 
+    return true if @grid[0] == 'X' && @grid[4] == 'X' && @grid[8] == 'X'
+    return true if @grid[2] == 'X' && @grid[4] == 'X' && @grid[6] == 'X'
+    return true if @grid[0] == 'O' && @grid[4] == 'O' && @grid[8] == 'O'
+    return true if @grid[2] == 'O' && @grid[4] == 'O' && @grid[6] == 'O'
+    # no rows found
+    return false
   end
 
   def full?

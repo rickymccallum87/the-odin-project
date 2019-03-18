@@ -65,7 +65,9 @@ class Board
   end
 
   def display
-    p @grid
+    p @grid[0..2]
+    p @grid[3..5]
+    p @grid[6..8]
   end
 
   def place_mark(mark, position)
